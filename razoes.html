@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razões Para Te Amar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            font-size: 18px;
+            color: #f1eeee;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 1.2em;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #e79cba;
+            transform: translateY(-5px);
+        }
+
+        .content-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Slide de imagens */
+        .image-container {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            background-color: #f0c6e5;
+            margin: 0 auto;
+        }
+
+        .image-slide {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .image-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Animação de troca de imagem */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .text-container {
+            width: 100%;
+            max-width: 500px;
+            text-align: left;
+            background-color: #c170a3cd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(224, 49, 195, 0.716);
+            margin: 0 auto;
+        }
+
+        .text-container h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .text-container p {
+            font-size: 1.1em;
+            color: #f1eeee;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 15px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+            }
+
+            .navbar ul li {
+                margin-bottom: 10px;
+            }
+
+            .navbar ul li a {
+                font-size: 1.1em;
+            }
+
+            .image-container {
+                width: 67%;
+                height: 290px;
+            }
+
+            .text-container {
+                width: 100%;
+            }
+
+            .text-container h2 {
+                font-size: 1.5em;
+            }
+
+            .text-container p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="jogos.html">DIVERSÃO</a></li>
+            <li><a href="razoes.html">TE AMO</a></li>
+            <li><a href="avaliacoes.html">AVALIAÇÕES</a></li>
+        </ul>
+    </header>
+
+    <section class="content-section">
+        <!-- Slide de imagens -->
+        <div class="image-container">
+            <div class="image-slide">
+                <img src="fots/praia (1).png" alt="Imagem 1">
+                <img src="fots/praia (2).png" alt="Imagem 2">
+                <img src="fots/praia (3).png" alt="Imagem 3">
+            </div>
+        </div>
+
+        <!-- Texto ao lado do slide -->
+        <div class="text-container">
+            <h2>E TOME TESTÃO!</h2>
+            <p>Oi amorrrrr, espero que você goste!
+                Eu te disse que queria te surpreender,  então tirei um tempo que não tava estudando pra fazer isso pra vc. Confesso auau, foi muito chatin visse,  mais vc disse a mim que daria certo isso. Então eu fiz um pra você,  eu vie né as pessoas no tik fazendo e pagando pra fazer um bem simples, aí como eu sei algumas coisas e pedie ajuda ao chat, resolvi te fazer esse mais difícil. Assim né amor, primeiro foi eu que fiz, não foi pago. Acho que n tem nem como achar um desse já que fiz pra vc. Vou deixar no ar, pra quando vc quiser vê,  até pq não é na minha conta msm e sim na que criei pra vc.
+                Enfim amor, eu te amo muito, acho que já tá explicado,  eu sinceramente espero que tenha servido no teu celular, e se n pegou direito, perdoe eu, completamente chato é colocar pra funcionar no celular. Mais assim eu te amo muito, quero que saiba disso, vc é especial para mim. Veja esse mero esforço meu, como prova disso, espero que as dores de cabeça que foi fazendo isso vala a pena. Criei pra vc vê quando tiver dúvidas que pode contar com sua best. Quero que fique com isso só pra ti. Te amo muito❤️</p>
+        </div>
+    </section>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".image-slide img");
+        const totalImages = images.length;
+
+        setInterval(function() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            document.querySelector(".image-slide").style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3000);
+    </script>
+
+</body>
+</html>

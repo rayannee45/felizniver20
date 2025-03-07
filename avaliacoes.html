@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Navegação e Avaliações</title>
+    <!-- Inclusão da fonte Poppins 700 -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Resetando margens e preenchimento */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Estilo geral do corpo */
+        body {
+            background: #f5f5f5;
+            font-size: 18px;
+            color: #f1eeee;
+        }
+
+        /* Estilo da barra de navegação */
+        .navbar {
+            background-color: #ffffff; /* Cor de fundo da barra */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: rgb(0, 0, 0); /* cores das letras */
+            font-size: 1.2em;
+            font-weight: 700; /* Usando a fonte Poppins 700 */
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #e79cba; /* Efeito de hover */
+            transform: translateY(-5px); /* Levanta o item no hover */
+        }
+
+        /* Estilo para quando um item da barra está ativo */
+        .navbar ul li a.active {
+            background-color: #f9f1f4;
+            color: #000000;
+        }
+
+        /* Estilo da seção de Avaliações */
+        .avaliacoes-section {
+            padding: 30px;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        .avaliacoes-section h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para telas pequenas (como smartphones) */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .avaliacoes-section {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .avaliacao-btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            .mensagem {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Estilos para telas muito pequenas (como celulares em modo retrato) */
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            .navbar ul {
+                font-size: 1em;
+            }
+
+            .avaliacoes-section {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .avaliacao-btn {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .mensagem {
+                font-size: 1em;
+            }
+        }
+
+        .avaliacoes-section p {
+            font-size: 1.1em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Botões de avaliação */
+        .avaliacao-btn {
+            font-size: 1.2em;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .avaliacao-btn.gostei {
+            background-color: #7df97d; /* Verde para gostei */
+        }
+
+        .avaliacao-btn.nao-gostei {
+            background-color: #ff7b7b; /* Vermelho para não gostei */
+        }
+
+        .avaliacao-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Mensagens */
+        .mensagem {
+            margin-top: 30px;
+            font-size: 1.4em;
+            font-weight: 700;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .mensagem.gostei {
+            background-color: #d4f7d2;
+            color: #3c9c3c;
+        }
+
+        .mensagem.nao-gostei {
+            background-color: #ffdbdb;
+            color: #a83232;
+        }
+
+        /* Emoji */
+        .emoji {
+            font-size: 2em; /* Tamanho maior para o emoji */
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegação -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html" class="active" id="inicio-link">INICIO</a></li>
+            <li><a href="jogos.html" id="diversao-link">DIVERSÃO</a></li>
+            <li><a href="razoes.html" id="razoes-link">TE AMO</a></li>
+            <li><a href="avaliacoes.html" id="avaliacoes-link">AVALIAÇÕES</a></li>
+        </ul>
+    </div>
+
+    <!-- Seção de Avaliações -->
+    <div class="avaliacoes-section">
+        <h2>Avaliações</h2>
+        <p>ME DIZ SE GOSTOU AUAU:</p>
+
+        <!-- Botões para "Gostei" e "Não Gostei" -->
+        <button class="avaliacao-btn gostei">Gostei</button>
+        <button class="avaliacao-btn nao-gostei">Não Gostei</button>
+
+        <!-- Mensagens -->
+        <div class="mensagem gostei">
+            <p><span class="emoji">😊</span> FICO FELIZ AMOR QUE TENHA GOSTADO, E É O CERTO NÉ.</p>
+        </div>
+
+        <div class="mensagem nao-gostei">
+            <p><span class="emoji">😞</span> QUE MÁGOA FIQUEI COM O CORAÇÃO TRISTIN.</p>
+        </div>
+    </div>
+
+    <script>
+        // Selecionando os botões e as mensagens
+        const btnGostei = document.querySelector('.avaliacao-btn.gostei');
+        const btnNaoGostei = document.querySelector('.avaliacao-btn.nao-gostei');
+        const msgGostei = document.querySelector('.mensagem.gostei');
+        const msgNaoGostei = document.querySelector('.mensagem.nao-gostei');
+
+        // Função para mostrar a mensagem de "Gostei"
+        btnGostei.addEventListener('click', () => {
+            msgGostei.style.display = 'block';
+            msgNaoGostei.style.display = 'none'; // Esconde a mensagem de "Não Gostei"
+        });
+
+        // Função para mostrar a mensagem de "Não Gostei"
+        btnNaoGostei.addEventListener('click', () => {
+            msgNaoGostei.style.display = 'block';
+            msgGostei.style.display = 'none'; // Esconde a mensagem de "Gostei"
+        });
+    </script>
+
+</body>
+</html>
