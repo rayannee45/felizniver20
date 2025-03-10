@@ -61,7 +61,7 @@
         }
 
         .quiz-container {
-            background-color: #f9c4de;
+            background-color: #f5d0e2;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,10 +73,10 @@
         .question {
             font-size: 1.5em;
             margin-bottom: 20px;
-            background: linear-gradient(145deg, #ff5c8d, #f97bb5);
+            background: linear-gradient(145deg, #df86a1, #f9c1db);
             padding: 20px;
             border-radius: 8px;
-            color: white;
+            color: rgb(231, 227, 231);
         }
 
         .answers {
@@ -94,7 +94,7 @@
         }
 
         .answers li:hover {
-            background-color: #c744b3;
+            background-color: #e9aadf;
             transform: scale(1.05);
         }
 
@@ -140,6 +140,12 @@
             font-size: 1.5em;
         }
 
+        .video-container {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+
         /* Adicionando animação para o "shake" */
         @keyframes shake {
             0% { transform: translateX(0); }
@@ -149,6 +155,83 @@
             100% { transform: translateX(0); }
         }
 
+        .video-container a {
+            color: #27ae60;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* Estilos para telas pequenas (como smartphones) */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .intro-container {
+                padding: 15px;
+            }
+
+            .intro-text {
+                font-size: 1.2em;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+
+            .countdown {
+                font-size: 1.5em;
+            }
+
+            .intro-image {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        /* Estilos para telas muito pequenas (como celulares em modo retrato) */
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .navbar ul {
+                font-size: 1.1em;
+                padding: 0;
+            }
+
+            .navbar ul li a {
+                font-size: 1em;
+            }
+
+            .intro-text {
+                font-size: 1.1em;
+            }
+
+            .intro-image {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 1em;
+            }
+
+            .countdown {
+                font-size: 1.4em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -167,17 +250,25 @@
 
     <div class="quiz-container">
         <div id="quiz" class="quiz">
-            <div class="question" id="question-text">Quando a gente se oficializou como melhores amigas?</div>
+            <div class="question" id="question-text">Qual é a capital do Brasil?</div>
             <ul class="answers">
-                <li data-answer="1">XX-III-MMXXII</li>
-                <li data-answer="2">IX-I-MMXXII</li>
-                <li data-answer="3">V-I-MMXXII</li>
-                <li data-answer="4">IV-I-MMXXII</li>
+                <li data-answer="1">São Paulo</li>
+                <li data-answer="2">Rio de Janeiro</li>
+                <li data-answer="3">Brasília</li>
+                <li data-answer="4">Salvador</li>
             </ul>
             <button class="btn" id="next-btn" disabled>Próxima Pergunta</button>
         </div>
 
         <div id="result" class="result" style="display: none;"></div>
+
+        <!-- Tela com vídeo -->
+        <div id="video-container" class="video-container">
+            <h2>Parabéns! Você acertou todas as perguntas!</h2>
+            <h2>Aperte o link abaixo para ver seu prêmio!</h2>
+            <a href="https://drive.google.com/file/d/1suHSsFKBy4p05c34RqSbrIPApZ6m7oUy/view?usp=drive_link" target="_blank">Clique aqui para assistir ao prêmio!</a>
+           <h1>CASO NÃO FUNCIONE, COMPROVE QUE TERMINOU TIRANDO PRINT DA TELA E ENVIE NO WPP!</h1>
+        </div>
     </div>
 
     <script>
@@ -216,7 +307,12 @@
                 question: "Por que você acha que eu te amo tanto?",
                 answers: ["porque gosta de mim", "porque eu sou eu!", "Porque eu canto", "Porque sou gentil"],
                 correctAnswer: 2
-            }
+            },
+            {
+                question: "Quando a gente se oficializou como melhores amigas?",
+                answers: ["10/03/22", "09/01/22", "08/04/22", "03/04/22"],
+                correctAnswer: 2
+            },
         ];
 
         let currentQuestion = 0;
@@ -226,6 +322,7 @@
         const answersList = document.querySelector('.answers');
         const nextBtn = document.getElementById('next-btn');
         const resultDiv = document.getElementById('result');
+        const videoContainer = document.getElementById('video-container');
 
         function loadQuestion() {
             const question = questions[currentQuestion];
@@ -261,6 +358,7 @@
             // Se a resposta estiver errada
             if (answerIndex !== correctAnswerIndex) {
                 selectedAnswer.classList.add('incorrect');
+                selectedAnswer.classList.add('shake');
                 nextBtn.classList.remove('green');
                 return; // Não avança até acertar
             }
@@ -283,11 +381,14 @@
             resultDiv.style.display = 'block';
             resultDiv.textContent = `Você acertou ${score} de ${questions.length} perguntas!`;
             nextBtn.style.display = 'none';
+            if (score === questions.length) {
+                videoContainer.style.display = 'block';
+            }
         }
 
+        loadQuestion();
         nextBtn.addEventListener('click', nextQuestion);
-
-        loadQuestion(); // Carrega a primeira pergunta
     </script>
+
 </body>
 </html>
