@@ -175,56 +175,6 @@
                 font-size: 1.4em;
             }
         }
-        /* Estilos básicos para a página */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  color: #333;
-  text-align: center;
-}
-
-/* Container do cronômetro */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* Estilizando o cronômetro */
-#cronometro {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #4CAF50;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-}
-
-/* Animação suave */
-#cronometro {
-  animation: pulse 1.5s infinite ease-in-out;
-}
-
-/* Animação de "pulso" para o cronômetro */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
         </style>
 </head>
 <body>
@@ -243,12 +193,12 @@ h1 {
 
     <div class="intro-container">
         <div class="intro-text">
-            <p>Resolvi te presentear de uma maneira diferente, e espero que goste.</p>
-            <p>Quero que quando tiver dúvidas, olhe esse mero esforço meu,até porque auau, foi muito díficil. mais por você vale a pena.</p>
+            <p>Resolvi te presentear de uma maneira diferente, espero que goste.</p>
+            <p>QUERO QUE QUANDO VOCÊ TIVER DUVIDAS QUE AMO NOSSA AMIZADE LEMBRE DESSE ESFORÇO, PORQUE É DÍFICIL.</p>
         </div>
 
         <!-- Imagem de introdução -->
-        <img src="teainicial.png" alt="Imagem de Introdução" class="intro-image">
+        <img src="fots/teainicial.png" alt="Imagem de Introdução" class="intro-image">
 
         <!-- Cronômetro -->
         <div class="countdown" id="countdown">
@@ -288,32 +238,6 @@ h1 {
 
         // Atualiza o cronômetro a cada 1 segundo
         const x = setInterval(updateCountdown, 1000);
-
-     
-        // cronometro de datas desde o inicio da amizade
-
-        
-        // Define a data inicial
-const dataInicial = new Date("2022-01-09T00:00:00");
-
-// Função para calcular o tempo passado
-function atualizarCronometro() {
-  const dataAtual = new Date();
-  const tempoPassado = dataAtual - dataInicial; // tempo em milissegundos
-  
-  const segundos = Math.floor((tempoPassado / 1000) % 60);
-  const minutos = Math.floor((tempoPassado / (1000 * 60)) % 60);
-  const horas = Math.floor((tempoPassado / (1000 * 60 * 60)) % 24);
-  const dias = Math.floor(tempoPassado / (1000 * 60 * 60 * 24));
-  
-  // Atualiza o cronômetro na tela
-  document.getElementById("cronometro").innerHTML = 
-    `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
-}
-
-// Atualiza o cronômetro a cada segundo
-setInterval(atualizarCronometro, 1000);
-
     </script>
 
 </body>
