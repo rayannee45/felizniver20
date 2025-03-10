@@ -250,12 +250,12 @@
 
     <div class="quiz-container">
         <div id="quiz" class="quiz">
-            <div class="question" id="question-text">Qual é a capital do Brasil?</div>
+            <div class="question" id="question-text">Quando a gente se oficializou como melhores amigas?</div>
             <ul class="answers">
-                <li data-answer="1">São Paulo</li>
-                <li data-answer="2">Rio de Janeiro</li>
-                <li data-answer="3">Brasília</li>
-                <li data-answer="4">Salvador</li>
+                <li data-answer="1">XX-III-MMXXII</li>
+                <li data-answer="2">IX-I-MMXXII</li>
+                <li data-answer="3">V-I-MMXXII</li>
+                <li data-answer="4">IV-I-MMXXII</li>
             </ul>
             <button class="btn" id="next-btn" disabled>Próxima Pergunta</button>
         </div>
@@ -267,7 +267,7 @@
             <h2>Parabéns! Você acertou todas as perguntas!</h2>
             <h2>Aperte o link abaixo para ver seu prêmio!</h2>
             <a href="https://drive.google.com/file/d/1suHSsFKBy4p05c34RqSbrIPApZ6m7oUy/view?usp=drive_link" target="_blank">Clique aqui para assistir ao prêmio!</a>
-           <h1>CASO NÃO FUNCIONE, COMPROVE QUE TERMINOU TIRANDO PRINT DA TELA E ENVIE NO WPP!</h1>
+            <h1>CASO NÃO FUNCIONE, COMPROVE QUE TERMINOU TIRANDO PRINT DA TELA E ENVIE NO WPP!</h1>
         </div>
     </div>
 
@@ -309,7 +309,7 @@
                 correctAnswer: 2
             },
             {
-                question: "Vamos lá, qual música remete a gente? "Pense bem,lembre que eu lhe perguntei e você se confundiu",
+                question: "Vamos lá, qual música remete a gente? 'Pense bem, lembre que eu lhe perguntei e você se confundiu'",
                 answers: ["Chuva de Arroz", "Tudo que você quiser", "Te assumir pro Brasil", "Te Vivo"],
                 correctAnswer: 4
             },
@@ -396,9 +396,9 @@
             }
         }
 
-        loadQuestion();
         nextBtn.addEventListener('click', nextQuestion);
-    </script>
 
+        loadQuestion(); // Carrega a primeira pergunta
+    </script>
 </body>
 </html>
