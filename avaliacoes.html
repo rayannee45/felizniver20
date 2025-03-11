@@ -186,6 +186,29 @@
             font-size: 2em; /* Tamanho maior para o emoji */
             margin-right: 10px;
         }
+        button {
+	position: absolute;
+	left: 50%;
+	bottom: 20px; /* Adjust this value to control the vertical position */
+	transform: translateX(-50%);
+	background-color: #d14d44;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1rem;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+}
+
+button a {
+	color: white;
+	text-decoration: none;
+}
+
+button:hover {
+	background-color: #c24e46;
+}
     </style>
 </head>
 <body>
@@ -202,13 +225,17 @@
 
     <!-- Seção de Avaliações -->
     <div class="avaliacoes-section">
-        <h2>Avaliações</h2>
-        <p>ME DIZ SE GOSTOU AUAU:</p>
+        <h2>AINDA NÃO ACABOU</h2>
+        <p>CLICA AI AUAU:</p>
 
         <!-- Botões para "Gostei" e "Não Gostei" -->
-        <button class="avaliacao-btn gostei"><a href="main.html">Gostei</a></button>
-        <button class="avaliacao-btn nao-gostei">Não Gostei</button>
+        <button class="avaliacao-btn gostei">Gostei</button>        
 
+        <button class="avaliacao-btn nao-gostei">Não Gostei</button>
+              
+        <a href="flowers.html">
+            <button class="btn">clique para ter uma surpresa</button>
+        </a>
         <!-- Mensagens -->
         <div class="mensagem gostei">
             <p><span class="emoji">😊</span> FICO FELIZ AMOR QUE TENHA GOSTADO, E É O CERTO NÉ.</p>
